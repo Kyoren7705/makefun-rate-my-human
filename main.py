@@ -11,6 +11,8 @@ LINE = "Sends a 400-word brief at 1 a.m. marked 'quick question', then asks why 
 
 
 def main() -> None:
+    if not 1 <= len(LINE) <= 200:
+        raise SystemExit("entry line must be 1-200 characters")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(LINE)
